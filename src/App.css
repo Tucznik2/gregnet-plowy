@@ -1,38 +1,254 @@
-.App {
-  text-align: center;
+/* general styling */
+:root {
+  --bright-blue: #5a95cf;
+  --dark-blue: #3a52a0;
+  --dark-purple: #4e4b9a;
+  --purple: #774897;
+  --fuksia: #ba60a1;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: Made-Soulmaze;
+  src: url("fonts/MADE\ Soulmaze\ PERSONAL\ USE.otf") format("opentype");
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.header-wrapper,
+.nav-wrapper,
+.billboard-wrapper,
+.services-wrapper,
+.about-wrapper,
+.remote-wrapper,
+.contact-wrapper,
+.footer-wrapper {
+  max-width: 1200px;
+}
+h2 {
+  font-family: "Made-Soulmaze", sans-serif;
+}
+h3 {
+  color: var(--purple);
+}
+p {
+  font-family: "Montserrat", sans-serif;
+}
+.ask {
+  border: 3px solid var(--bright-blue);
+  color: #000;
+  transition: all 0.5s;
+  font-family: "Montserrat", sans-serif;
+}
+.ask:hover {
+  background-color: var(--bright-blue);
+  color: #fff;
+}
+/* header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fff;
+}
+header,
+.header-wrapper {
+  max-height: 200px;
+  font-family: "Montserrat", sans-serif;
+}
+.header-wrapper {
+  color: var(--purple);
+}
+.phone-icon,
+.local-icon {
+  aspect-ratio: 1/1;
+  max-width: 35px;
+}
+header .logo {
+  max-width: 100px;
+}
+header .localisation,
+header .phone,
+header .ask {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  header .localisation,
+  header .phone {
+    display: flex;
+  }
+  header .ask {
+    display: block;
+  }
+  header .logo {
+    max-width: 200px;
+  }
+  #hamburger-menu {
+    display: none;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (min-width: 1024px) {
+  header .phone-icon,
+  header .local-icon {
+    max-width: 45px;
   }
-  to {
-    transform: rotate(360deg);
+}
+/* nav */
+nav {
+  background-color: var(--bright-blue);
+  font-family: "Montserrat", sans-serif;
+}
+.active {
+  border-bottom: 3px solid var(--purple);
+}
+nav li {
+  cursor: pointer;
+}
+/* billboard */
+.billboard {
+  background: url("./images/home.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-height: 500px;
+  height: 500px;
+}
+.billboard-wrapper {
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+.billboard span {
+  font-family: "Made-Soulmaze", sans-serif;
+}
+.copy {
+  max-width: 600px;
+}
+.billboard .ask {
+  max-width: 300px;
+}
+.white-camera {
+  scale: 0.4;
+  top: -5%;
+  left: -15%;
+}
+.black-camera {
+  scale: 0.4;
+  rotate: -30deg;
+  right: -12%;
+  top: -5%;
+}
+@media screen and (min-width: 1536px) {
+  .white-camera {
+    top: -12%;
+  }
+  .black-camera {
+    top: -12%;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .white-camera {
+    top: -18%;
+  }
+  .black-camera {
+    top: -17%;
+  }
+}
+@media screen and (min-width: 2350px) {
+  .white-camera {
+    top: -20%;
+  }
+  .black-camera {
+    top: -20%;
+  }
+}
+/* divider */
+.divider {
+  width: 100%;
+  min-height: 40px;
+  background-color: var(--bright-blue);
+}
+/* services */
+/* about */
+.about-images {
+  width: 100%;
+}
+@media screen and (min-width: 640px) {
+  .about-images {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* remote */
+.remote {
+  background: url("./images/pomoc-tlo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 400px;
+}
+.arrow-pointer {
+  width: 100%;
+  max-width: 80px;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  animation: mainpage-header-bottom-icon 2s;
+  animation-iteration-count: infinite;
+}
+.remote .logo {
+  max-width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 640px) {
+  .remote .logo {
+    max-width: 400px;
+  }
+  .arrow-pointer {
+    max-width: 100px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .remote .logo {
+    max-width: 600px;
+  }
+}
+.remote-wrapper {
+  min-height: 600px;
+}
+@keyframes mainpage-header-bottom-icon {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: 20px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+/* contact */
+.contact {
+  min-height: 300px;
+}
+.contact-wrapper {
+  color: var(--purple);
+}
+@media screen and (min-width: 768px) {
+  .contact .phone-icon,
+  .contact .local-icon {
+    max-width: 50px;
+  }
+}
+/* footer */
+footer {
+  background-color: var(--bright-blue);
+}
+.footer-wrapper .logo {
+  max-width: 150px;
+}
+@media screen and (min-width: 768px) {
+  .footer-wrapper .logo {
+    max-width: 200px;
   }
 }
