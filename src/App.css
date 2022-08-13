@@ -8,7 +8,7 @@
 }
 @font-face {
   font-family: Made-Soulmaze;
-  src: url("fonts/MADE\ Soulmaze\ PERSONAL\ USE.otf") format("opentype");
+  src: url('fonts/MADE\ Soulmaze\ PERSONAL\ USE.otf') format('opentype');
 }
 .header-wrapper,
 .nav-wrapper,
@@ -21,19 +21,19 @@
   max-width: 1200px;
 }
 h2 {
-  font-family: "Made-Soulmaze", sans-serif;
+  font-family: 'Made-Soulmaze', sans-serif;
 }
 h3 {
   color: var(--purple);
 }
 p {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .ask {
   border: 3px solid var(--bright-blue);
   color: #000;
   transition: all 0.5s;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .ask:hover {
   background-color: var(--bright-blue);
@@ -49,7 +49,7 @@ header {
 header,
 .header-wrapper {
   max-height: 200px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .header-wrapper {
   color: var(--purple);
@@ -91,7 +91,7 @@ header .ask {
 /* nav */
 nav {
   background-color: var(--bright-blue);
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .active {
   border-bottom: 3px solid var(--purple);
@@ -101,7 +101,7 @@ nav li {
 }
 /* billboard */
 .billboard {
-  background: url("./images/home.jpg");
+  background: url('./images/home.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -114,7 +114,7 @@ nav li {
   place-content: center;
 }
 .billboard span {
-  font-family: "Made-Soulmaze", sans-serif;
+  font-family: 'Made-Soulmaze', sans-serif;
 }
 .copy {
   max-width: 600px;
@@ -180,7 +180,7 @@ nav li {
 }
 /* remote */
 .remote {
-  background: url("./images/pomoc-tlo.png");
+  background: url('./images/pomoc-tlo.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

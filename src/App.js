@@ -1,12 +1,12 @@
 import './App.css';
-import { Header } from './components/header';
-import { Billboard } from './components/billboard';
-import { Divider } from './components/divider';
-import { Services } from './components/services';
-import { About } from './components/about';
-import { Remote } from './components/remote';
-import { Contact } from './components/contact';
-import { Footer } from './components/footer';
+import Header from './components/header';
+import Billboard from './components/billboard';
+import Divider from './components/divider';
+import Services from './components/services';
+import About from './components/about';
+import Remote from './components/remote';
+import Contact from './components/contact';
+import Footer from './components/footer';
 
 function App() {
   return (
