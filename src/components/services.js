@@ -2,7 +2,7 @@ import services from '../images/uslugiiii.svg';
 
 export const Services = () => {
     return (
-        <div className='services w-full'>
+        <div id='services' className='services w-full'>
             <div className='services-wrapper mx-auto text-center px-1 py-4'>
                 <h3 className='my-3 font-bold text-lg md:text-xl'>Usługi</h3>
                 <h2 className='font-bold text-lg md:text-2xl'>Jakie usługi świadczymy</h2>

@@ -7,7 +7,7 @@ export const Header = () => {
     return (
         <header className='w-full'>
             <div className='header-wrapper px-1 py-5 h-full mx-auto font-bold flex items-center justify-around'>
-                <img src={logo} alt='gregnet-logo' className='logo h-full' />
+                <a href='gregnet.pl'><img src={logo} alt='gregnet-logo' className='logo h-full' /></a>
                 <div className='localisation flex items-center'>
                     <img className='local-icon h-full mx-2' src={loc} alt='local-icon' />
                     <span className='text-sm md:text-base lg:text-lg'>

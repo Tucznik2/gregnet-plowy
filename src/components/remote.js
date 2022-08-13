@@ -3,7 +3,7 @@ import logo from '../images/logo-przezroczyste.png';
 
 export const Remote = () => {
     return (
-        <div className='remote w-full'>
+        <div id='remote' className='remote w-full'>
             <div className='remote-wrapper mx-auto text-center relative px-1 py-4'>
                 <h3 className='my-3 font-bold text-lg md:text-xl'>Pomoc zdalna</h3>
                 <h2 className='font-bold text-lg md:text-2xl'>Kliknij tutaj aby skorzystać z pomocy zdalnej (desktop)</h2>
