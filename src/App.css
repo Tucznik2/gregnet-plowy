@@ -39,6 +39,20 @@ p {
   background-color: var(--bright-blue);
   color: #fff;
 }
+.phone-icon,
+.local-icon,
+.info-icon,
+.facebook-icon {
+  font-size: 30px;
+}
+@media screen and (min-width: 1024px) {
+  .phone-icon,
+  .local-icon,
+  .info-icon,
+  .facebook-icon {
+    font-size: 40px;
+  }
+}
 /* header */
 header {
   position: sticky;
@@ -53,11 +67,6 @@ header,
 }
 .header-wrapper {
   color: var(--purple);
-}
-.phone-icon,
-.local-icon {
-  aspect-ratio: 1/1;
-  max-width: 35px;
 }
 header .logo {
   max-width: 100px;
@@ -77,15 +86,6 @@ header .ask {
   }
   header .logo {
     max-width: 200px;
-  }
-  #hamburger-menu {
-    display: none;
-  }
-}
-@media screen and (min-width: 1024px) {
-  header .phone-icon,
-  header .local-icon {
-    max-width: 45px;
   }
 }
 /* nav */
@@ -236,7 +236,8 @@ nav li {
 }
 @media screen and (min-width: 768px) {
   .contact .phone-icon,
-  .contact .local-icon {
+  .contact .local-icon,
+  .info-icon {
     max-width: 50px;
   }
 }
