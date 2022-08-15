@@ -1,5 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import logo from '../images/logo-przezroczyste.png';
-import facebook from '../images/facebook.png';
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
         <div className="main-footer flex items-center justify-between">
           <img src={logo} alt="gregnet-logo" className="logo" />
           <a href="https://www.facebook.com/Greg-Net-334371619984403/">
-            <img src={facebook} alt="facebook-logo" className="facebook-logo" />
+            <FontAwesomeIcon icon={faFacebook} className="facebook-icon" />
           </a>
         </div>
         <div className="credentials text-center flex items  justify-between text-white text-xs sm:text-base font-bold">

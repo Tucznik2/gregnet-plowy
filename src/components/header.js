@@ -1,7 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import Navbar from './navbar';
 import logo from '../images/logo.png';
-import loc from '../images/local.png';
-import phone from '../images/phone.png';
 
 export default function Header() {
   return (
@@ -10,19 +10,15 @@ export default function Header() {
         <a href="http://gregnet.pl/">
           <img src={logo} alt="gregnet-logo" className="logo h-auto" />
         </a>
-        <div className="localisation flex items-center">
-          <img className="local-icon h-full mx-2" src={loc} alt="local-icon" />
+        <div className="localisation flex items-center gap-2">
+          <FontAwesomeIcon icon={faLocationDot} className="local-icon" />
           <span className="text-sm md:text-base lg:text-lg">
             Mikołaja Kopernika 21E <br />
             37-100 Łańcut
           </span>
         </div>
-        <div className="phone flex items-center">
-          <img
-            className="phone-icon h-full mx-2"
-            src={phone}
-            alt="local-icon"
-          />
+        <div className="phone flex items-center gap-2">
+          <FontAwesomeIcon icon={faPhone} className="phone-icon" />
           <span className="text-sm md:text-base lg:text-xl">+48 662257522</span>
         </div>
         <a
