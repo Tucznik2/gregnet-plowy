@@ -94,7 +94,17 @@ nav {
   font-family: 'Montserrat', sans-serif;
 }
 .active {
-  border-bottom: 3px solid var(--purple);
+  position: relative;
+}
+.active::after {
+  position: absolute;
+  content: '';
+  height: 3px;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: var(--purple);
 }
 nav li {
   cursor: pointer;
