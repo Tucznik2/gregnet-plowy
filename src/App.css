@@ -19,6 +19,7 @@
 .contact-wrapper,
 .footer-wrapper {
   max-width: 1200px;
+  height: 100%;
 }
 h2 {
   font-family: 'Made-Soulmaze', sans-serif;
@@ -59,6 +60,7 @@ header {
   top: 0;
   z-index: 1;
   background-color: #fff;
+  box-shadow: 0px 0px 4px 0px #000;
 }
 header,
 .header-wrapper {
@@ -95,14 +97,17 @@ nav {
   transition: height 0.5s ease;
   overflow: hidden;
 }
-.active {
-  border-bottom: 3px solid var(--purple);
-}
 nav li {
   cursor: pointer;
 }
-.nav-shadow {
-  box-shadow: '0px 0px 4px 0px #000';
+@media screen and (min-width: 768px) {
+  nav {
+    min-height: 41px;
+    box-shadow: unset;
+  }
+  nav li:first-of-type {
+    border-bottom: 3px solid var(--purple);
+  }
 }
 /* billboard */
 .billboard {

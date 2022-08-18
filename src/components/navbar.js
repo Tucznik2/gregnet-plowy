@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function Navbar({ props }) {
   const navRef = useRef();
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState();
 
   useEffect(() => {
     function changeWidth() {
@@ -19,10 +19,15 @@ export default function Navbar({ props }) {
 
   const navHeight = () => {
     if (props && screenWidth < 768) {
-      return { height: `${navRef.current.scrollHeight}px`, padding: '0.5rem' };
+      return {
+        height: `${navRef.current.scrollHeight + 8}px`,
+      };
     }
     if (screenWidth > 768) {
-      return { height: `${navRef.current.scrollHeight}px`, padding: '0.5rem' };
+      return {
+        height: `${navRef.current.scrollHeight + 8}px`,
+        maxHeight: '47px',
+      };
     }
     return { height: '0px' };
   };
@@ -30,8 +35,8 @@ export default function Navbar({ props }) {
   return (
     <nav className="w-full" ref={navRef} style={navHeight()}>
       <div className="nav-wrapper mx-auto flex justify-center">
-        <ul className="flex md:flex-row flex-col font-bold sticky items-center text-sm md:text-base text-center lg:text-lg text-white gap-4 md:gap-8">
-          <li className="active">
+        <ul className="flex md:flex-row flex-col font-bold sticky items-center text-sm md:text-base text-center lg:text-lg text-white gap-4 md:gap-8 p-2">
+          <li>
             <a href="#top">Strona Główna</a>
           </li>
           <li>
