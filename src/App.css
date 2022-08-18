@@ -92,12 +92,17 @@ header .ask {
 nav {
   background-color: var(--bright-blue);
   font-family: 'Montserrat', sans-serif;
+  transition: height 0.5s ease;
+  overflow: hidden;
 }
 .active {
   border-bottom: 3px solid var(--purple);
 }
 nav li {
   cursor: pointer;
+}
+.nav-shadow {
+  box-shadow: '0px 0px 4px 0px #000';
 }
 /* billboard */
 .billboard {

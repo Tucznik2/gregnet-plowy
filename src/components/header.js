@@ -1,12 +1,23 @@
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPhone,
+  faLocationDot,
+  faBars,
+} from '@fortawesome/free-solid-svg-icons';
 import Navbar from './navbar';
 import logo from '../images/logo.png';
 
 export default function Header() {
+  const [toggleMenu, setToggleMenu] = useState(false);
+
+  const toggleNav = () => {
+    setToggleMenu(!toggleMenu);
+  };
+
   return (
     <header className="w-full">
-      <div className="header-wrapper px-1 py-5 h-full mx-auto font-bold flex flex-col md:flex-row items-center justify-around">
+      <div className="header-wrapper px-1 py-5 h-full mx-auto font-bold flex flex-col md:flex-row items-center justify-around relative">
         <a href="http://gregnet.pl/">
           <img src={logo} alt="gregnet-logo" className="logo h-auto" />
         </a>
@@ -29,8 +40,15 @@ export default function Header() {
         >
           Zapytaj o wycenę!
         </a>
+        <button
+          className="absolute right-5 text-xl md:hidden"
+          type="button"
+          onClick={toggleNav}
+        >
+          <FontAwesomeIcon icon={faBars} />
+        </button>
       </div>
-      <Navbar />
+      <Navbar props={toggleMenu} />
     </header>
   );
 }
