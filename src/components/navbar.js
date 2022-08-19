@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Navbar({ props }) {
+export default function Navbar({ menuStatus, closingMenuHandler }) {
   const navRef = useRef();
   const [screenWidth, setScreenWidth] = useState();
 
@@ -18,7 +18,7 @@ export default function Navbar({ props }) {
   });
 
   const navHeight = () => {
-    if (props && screenWidth < 768) {
+    if (menuStatus && screenWidth < 768) {
       return {
         height: `${navRef.current.scrollHeight + 8}px`,
       };
@@ -37,19 +37,29 @@ export default function Navbar({ props }) {
       <div className="nav-wrapper mx-auto flex justify-center">
         <ul className="flex md:flex-row flex-col font-bold sticky items-center text-sm md:text-base text-center lg:text-lg text-white gap-4 md:gap-8 p-2">
           <li>
-            <a href="#top">Strona Główna</a>
+            <a href="#top" onClick={closingMenuHandler}>
+              Strona Główna
+            </a>
           </li>
           <li>
-            <a href="#services">Usługi</a>
+            <a href="#services" onClick={closingMenuHandler}>
+              Usługi
+            </a>
           </li>
           <li>
-            <a href="#about">O nas</a>
+            <a href="#about" onClick={closingMenuHandler}>
+              O nas
+            </a>
           </li>
           <li>
-            <a href="#remote">Pomoc zdalna</a>
+            <a href="#remote" onClick={closingMenuHandler}>
+              Pomoc zdalna
+            </a>
           </li>
           <li>
-            <a href="#contact">Kontakt</a>
+            <a href="#contact" onClick={closingMenuHandler}>
+              Kontakt
+            </a>
           </li>
         </ul>
       </div>
@@ -58,5 +68,6 @@ export default function Navbar({ props }) {
 }
 
 Navbar.propTypes = {
-  props: PropTypes.bool.isRequired,
+  menuStatus: PropTypes.bool.isRequired,
+  closingMenuHandler: PropTypes.func.isRequired,
 };

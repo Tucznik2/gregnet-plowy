@@ -1,9 +1,11 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPhone,
   faLocationDot,
   faBars,
+  faX,
 } from '@fortawesome/free-solid-svg-icons';
 import Navbar from './navbar';
 import logo from '../images/logo.png';
@@ -11,8 +13,13 @@ import logo from '../images/logo.png';
 export default function Header() {
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  const toggleNav = () => {
+  function toggleNavHandler() {
     setToggleMenu(!toggleMenu);
+  }
+
+  const props = {
+    menuStatus: toggleMenu,
+    closingMenuHandler: toggleNavHandler,
   };
 
   return (
@@ -43,12 +50,12 @@ export default function Header() {
         <button
           className="absolute right-5 text-xl md:hidden"
           type="button"
-          onClick={toggleNav}
+          onClick={toggleNavHandler}
         >
-          <FontAwesomeIcon icon={faBars} />
+          <FontAwesomeIcon icon={!toggleMenu ? faBars : faX} />
         </button>
       </div>
-      <Navbar props={toggleMenu} />
+      <Navbar {...props} />
     </header>
   );
 }
