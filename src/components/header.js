@@ -31,13 +31,21 @@ export default function Header() {
         <div className="localisation flex items-center gap-2">
           <FontAwesomeIcon icon={faLocationDot} className="local-icon" />
           <span className="text-sm md:text-base lg:text-lg">
-            Mikołaja Kopernika 21E <br />
-            37-100 Łańcut
+            <a
+              href="https://goo.gl/maps/EDsfW98vLKD1jiMZ6"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Mikołaja Kopernika 21E <br />
+              37-100 Łańcut
+            </a>
           </span>
         </div>
         <div className="phone flex items-center gap-2">
           <FontAwesomeIcon icon={faPhone} className="phone-icon" />
-          <span className="text-sm md:text-base lg:text-xl">+48 662257522</span>
+          <span className="text-sm md:text-base lg:text-xl">
+            <a href="tel:662257522">+48 662257522</a>
+          </span>
         </div>
         <a
           className="ask px-3 py-2 uppercase text-center rounded-md text-sm lg:text-lg"

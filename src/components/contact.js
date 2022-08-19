@@ -21,8 +21,14 @@ export default function Contact() {
           <div className="localisation flex items-center my-3 gap-2">
             <FontAwesomeIcon icon={faLocationDot} className="local-icon" />
             <span className="text-lg md:text-xl">
-              Mikołaja Kopernika 21E <br />
-              37-100 Łańcut
+              <a
+                href="https://goo.gl/maps/EDsfW98vLKD1jiMZ6"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Mikołaja Kopernika 21E <br />
+                37-100 Łańcut
+              </a>
             </span>
           </div>
           <div className="phone flex items-center my-3 gap-2">
