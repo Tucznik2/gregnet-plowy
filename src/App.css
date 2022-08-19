@@ -100,16 +100,6 @@ nav {
 nav li:first-of-type {
   position: relative;
 }
-nav li:first-of-type::after {
-  position: absolute;
-  content: '';
-  height: 3px;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background: var(--purple);
-}
 nav li {
   cursor: pointer;
 }
@@ -118,8 +108,15 @@ nav li {
     min-height: 41px;
     box-shadow: unset;
   }
-  nav li:first-of-type {
-    border-bottom: 3px solid var(--purple);
+  nav li:first-of-type::after {
+    position: absolute;
+    content: '';
+    height: 4px;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--purple);
   }
 }
 /* billboard */
