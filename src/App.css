@@ -10,7 +10,8 @@
   font-family: Made-Soulmaze;
   src: url('fonts/MADE\ Soulmaze\ PERSONAL\ USE.otf') format('opentype');
 }
-html, body{
+html,
+body {
   scroll-behavior: smooth;
 }
 .header-wrapper,
@@ -122,6 +123,7 @@ nav li {
     right: 0;
     width: 100%;
     background: var(--purple);
+    border-radius: 4px;
   }
 }
 /* billboard */

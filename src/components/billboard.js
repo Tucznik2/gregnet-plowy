@@ -1,7 +1,7 @@
+import { forwardRef } from 'react';
 import logo from '../images/logo-przezroczyste.png';
 import camera1 from '../images/kamera.png';
 import camera2 from '../images/kamera-2.png';
-import { forwardRef } from 'react';
 
 function Billboard(props, ref) {
   return (

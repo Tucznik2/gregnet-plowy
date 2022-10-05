@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPhone,
@@ -10,7 +11,7 @@ import {
 import Navbar from './navbar';
 import logo from '../images/logo.png';
 
-export default function Header({navHeader}) {
+export default function Header({ navHeader }) {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   function toggleNavHandler() {
@@ -63,7 +64,11 @@ export default function Header({navHeader}) {
           <FontAwesomeIcon icon={!toggleMenu ? faBars : faX} />
         </button>
       </div>
-      <Navbar {...props} navHeader={navHeader}/>
+      <Navbar {...props} navHeader={navHeader} />
     </header>
   );
 }
+
+Header.propTypes = {
+  navHeader: PropTypes.instanceOf(Array).isRequired,
+};
