@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Navbar({ menuStatus, closingMenuHandler }) {
+export default function Navbar({ menuStatus, closingMenuHandler , navHeader}) {
   const navRef = useRef();
   const [screenWidth, setScreenWidth] = useState();
 
@@ -15,7 +15,18 @@ export default function Navbar({ menuStatus, closingMenuHandler }) {
     return () => {
       window.removeEventListener('resize', changeWidth);
     };
-  });
+  }, []);
+
+  useEffect(()=>{
+    function hadnleScroll(){
+      const activeScrollIndex = window.scrollY;
+      console.log(activeScrollIndex)
+    }
+    document.addEventListener('scroll', hadnleScroll);
+    return()=>{
+      document.removeEventListener('scroll', hadnleScroll)
+    }
+  })
 
   const navHeight = () => {
     if (menuStatus && screenWidth < 768) {
@@ -36,31 +47,13 @@ export default function Navbar({ menuStatus, closingMenuHandler }) {
     <nav className="w-full" ref={navRef} style={navHeight()}>
       <div className="nav-wrapper mx-auto flex justify-center">
         <ul className="flex md:flex-row flex-col font-bold sticky items-center text-sm md:text-base text-center lg:text-lg text-white gap-4 md:gap-8 p-2">
+        {navHeader.map((header, index) => (
           <li>
-            <a href="#top" onClick={closingMenuHandler}>
-              Strona Główna
+            <a href={`#${header.headerID}`} onClick={closingMenuHandler}>
+              {header.headerTitle}
             </a>
           </li>
-          <li>
-            <a href="#services" onClick={closingMenuHandler}>
-              Usługi
-            </a>
-          </li>
-          <li>
-            <a href="#about" onClick={closingMenuHandler}>
-              O nas
-            </a>
-          </li>
-          <li>
-            <a href="#remote" onClick={closingMenuHandler}>
-              Pomoc zdalna
-            </a>
-          </li>
-          <li>
-            <a href="#contact" onClick={closingMenuHandler}>
-              Kontakt
-            </a>
-          </li>
+        ))}
         </ul>
       </div>
     </nav>

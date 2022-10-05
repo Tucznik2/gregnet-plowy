@@ -10,7 +10,7 @@ import {
 import Navbar from './navbar';
 import logo from '../images/logo.png';
 
-export default function Header() {
+export default function Header({navHeader}) {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   function toggleNavHandler() {
@@ -63,7 +63,7 @@ export default function Header() {
           <FontAwesomeIcon icon={!toggleMenu ? faBars : faX} />
         </button>
       </div>
-      <Navbar {...props} />
+      <Navbar {...props} navHeader={navHeader}/>
     </header>
   );
 }

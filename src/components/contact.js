@@ -4,10 +4,11 @@ import {
   faCircleInfo,
   faLocationDot,
 } from '@fortawesome/free-solid-svg-icons';
+import { forwardRef } from 'react';
 
-export default function Contact() {
+function Contact(props, ref) {
   return (
-    <div id="contact" className="contact">
+    <div id="contact" className="contact" ref={ref}>
       <div className="contact-wrapper mx-auto text-center px-1 py-4 font-bold flex flex-col gap-10">
         <h3 className="my-3 font-bold text-lg md:text-xl">Kontakt</h3>
         <div className="contact-info flex flex-col md:flex-row items-center justify-around">
@@ -50,3 +51,5 @@ export default function Contact() {
     </div>
   );
 }
+
+export default forwardRef(Contact);

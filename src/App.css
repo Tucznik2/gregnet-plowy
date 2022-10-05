@@ -10,6 +10,9 @@
   font-family: Made-Soulmaze;
   src: url('fonts/MADE\ Soulmaze\ PERSONAL\ USE.otf') format('opentype');
 }
+html, body{
+  scroll-behavior: smooth;
+}
 .header-wrapper,
 .nav-wrapper,
 .billboard-wrapper,
@@ -100,7 +103,7 @@ nav {
   transition: height 0.5s ease;
   overflow: hidden;
 }
-nav li:first-of-type {
+.active {
   position: relative;
 }
 nav li {
@@ -110,7 +113,7 @@ nav li {
   nav {
     min-height: 41px;
   }
-  nav li:first-of-type::after {
+  .active::after {
     position: absolute;
     content: '';
     height: 4px;

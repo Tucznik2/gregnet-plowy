@@ -1,10 +1,11 @@
 import logo from '../images/logo-przezroczyste.png';
 import camera1 from '../images/kamera.png';
 import camera2 from '../images/kamera-2.png';
+import { forwardRef } from 'react';
 
-export default function Billboard() {
+function Billboard(props, ref) {
   return (
-    <div className="billboard w-full rela">
+    <div className="billboard w-full" ref={ref}>
       <img
         src={camera1}
         alt="black-camera"
@@ -39,3 +40,5 @@ export default function Billboard() {
     </div>
   );
 }
+
+export default forwardRef(Billboard);

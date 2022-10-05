@@ -1,3 +1,4 @@
+import {useRef} from 'react';
 import './App.css';
 import Header from './components/header';
 import Billboard from './components/billboard';
@@ -9,19 +10,52 @@ import Contact from './components/contact';
 import Footer from './components/footer';
 
 function App() {
+  const billboardRef = useRef();
+  const servicesRef = useRef();
+  const aboutRef = useRef();  
+  const remoteRef = useRef();
+  const contactRef = useRef();
+  const navHeader = [
+    {
+      headerTitle: "Strona główna",
+      headerRef: billboardRef,
+      headerID: "top"
+    },
+    {
+      headerTitle: "Usługi",
+      headerRef: servicesRef,
+      headerID: "services"
+    },
+    {
+      headerTitle: "O nas",
+      headerRef: aboutRef,
+      headerID: "about"
+    },
+    {
+      headerTitle: "Pomoc zdalna",
+      headerRef: remoteRef,
+      headerID: "remote"
+    },
+    {
+      headerTitle: "Kontakt",
+      headerRef: contactRef,
+      headerID: "contact"
+    },
+  ]
+
   return (
     <div className="App">
-      <Header />
+      <Header navHeader={navHeader}/>
       <main>
-        <Billboard />
+        <Billboard ref={billboardRef} />
         <Divider />
-        <Services />
+        <Services ref={servicesRef} />
         <Divider />
-        <About />
+        <About ref={aboutRef}/>
         <Divider />
-        <Remote />
+        <Remote ref={remoteRef}/>
         <Divider />
-        <Contact />
+        <Contact ref={contactRef}/>
       </main>
       <Footer />
     </div>

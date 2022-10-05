@@ -1,12 +1,13 @@
+import { forwardRef } from 'react';
 import Photo1 from '../images/realizations/01.jpg';
 import Photo2 from '../images/realizations/02.jpg';
 import Photo3 from '../images/realizations/03.jpg';
 import Photo4 from '../images/realizations/04.jpg';
 import Photo5 from '../images/realizations/05.jpg';
 
-export default function About() {
+function About(props, ref) {
   return (
-    <div id="about" className="about w-full">
+    <div id="about" className="about w-full" ref={ref}>
       <div className="about-wrapper mx-auto text-center px-1 py-4">
         <h3 className="my-3 font-bold text-lg md:text-xl">O nas</h3>
         <p className="my-6">
@@ -41,3 +42,5 @@ export default function About() {
     </div>
   );
 }
+
+export default forwardRef(About);

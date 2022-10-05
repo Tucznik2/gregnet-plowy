@@ -1,9 +1,10 @@
+import { forwardRef } from 'react';
 import arrow from '../images/arrow-next-2825.png';
 import logo from '../images/logo-przezroczyste.png';
 
-export default function Remote() {
+function Remote(props, ref) {
   return (
-    <div id="remote" className="remote w-full">
+    <div id="remote" className="remote w-full" ref={ref}>
       <div className="remote-wrapper mx-auto text-center relative px-1 py-4">
         <h3 className="my-3 font-bold text-lg md:text-xl">Pomoc zdalna</h3>
         <h2 className="font-bold text-lg md:text-2xl">
@@ -17,3 +18,5 @@ export default function Remote() {
     </div>
   );
 }
+
+export default forwardRef(Remote);
