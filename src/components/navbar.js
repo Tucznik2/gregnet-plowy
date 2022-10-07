@@ -10,6 +10,7 @@ export default function Navbar({
   const navRef = useRef();
   const [screenWidth, setScreenWidth] = useState();
   const [activeIndex, setActiveIndex] = useState(0);
+
   function active(sectionPositionArr, headerH) {
     if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
       return 4;
@@ -36,7 +37,7 @@ export default function Navbar({
       window.scrollY + headerH <=
         sectionPositionArr[4].headerRef.current.offsetTop
     ) {
-      return 1;
+      return 3;
     }
     return 0;
   }
@@ -62,7 +63,7 @@ export default function Navbar({
     return () => {
       document.removeEventListener('scroll', hadnleScroll);
     };
-  }, []);
+  });
 
   const navHeight = () => {
     if (menuStatus && screenWidth < 768) {

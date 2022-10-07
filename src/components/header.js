@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -13,6 +13,7 @@ import logo from '../images/logo.png';
 
 export default function Header({ navHeader }) {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [headerH, setHeight] = useState(0);
   const headerRef = useRef();
 
   function toggleNavHandler() {
@@ -22,7 +23,12 @@ export default function Header({ navHeader }) {
   const props = {
     menuStatus: toggleMenu,
     closingMenuHandler: toggleNavHandler,
+    headerHeight: headerH,
   };
+
+  useEffect(() => {
+    setHeight(headerRef.current.scrollHeight);
+  });
 
   return (
     <header className="w-full" ref={headerRef}>
