@@ -1,59 +1,44 @@
 import { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Navbar({ menuStatus, closingMenuHandler, navHeader }) {
+export default function Navbar({
+  menuStatus,
+  closingMenuHandler,
+  headerHeight,
+  navHeader,
+}) {
   const navRef = useRef();
   const [screenWidth, setScreenWidth] = useState();
   const [activeIndex, setActiveIndex] = useState(0);
-
-  function nearestIndex(
-    currentPosition,
-    sectionPositionArray,
-    startIndex,
-    endIndex
-  ) {
-    if (startIndex === endIndex) return startIndex;
-    if (startIndex === endIndex - 1) {
-      if (
-        Math.abs(
-          sectionPositionArray[startIndex].headerRef.current.offsetTop -
-            currentPosition +
-            40
-        ) <
-        Math.abs(
-          sectionPositionArray[endIndex].headerRef.current.offsetTop -
-            currentPosition +
-            40
-        )
-      )
-        return startIndex;
-      return endIndex;
+  function active(sectionPositionArr, headerH) {
+    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+      return 4;
     }
-    const nextNearest = (startIndex + endIndex) / 2;
-    const a = Math.abs(
-      sectionPositionArray[nextNearest].headerRef.current.offsetTop -
-        currentPosition +
-        40
-    );
-    const b = Math.abs(
-      sectionPositionArray[nextNearest + 1].headerRef.current.offsetTop -
-        currentPosition +
-        40
-    );
-    if (a < b) {
-      return nearestIndex(
-        currentPosition,
-        sectionPositionArray,
-        startIndex,
-        nextNearest
-      );
+    if (
+      window.scrollY + headerH >
+        sectionPositionArr[1].headerRef.current.offsetTop &&
+      window.scrollY + headerH <=
+        sectionPositionArr[2].headerRef.current.offsetTop
+    ) {
+      return 1;
     }
-    return nearestIndex(
-      currentPosition,
-      sectionPositionArray,
-      nextNearest,
-      endIndex
-    );
+    if (
+      window.scrollY + headerH >
+        sectionPositionArr[2].headerRef.current.offsetTop &&
+      window.scrollY + headerH <=
+        sectionPositionArr[3].headerRef.current.offsetTop
+    ) {
+      return 2;
+    }
+    if (
+      window.scrollY + headerH >
+        sectionPositionArr[3].headerRef.current.offsetTop &&
+      window.scrollY + headerH <=
+        sectionPositionArr[4].headerRef.current.offsetTop
+    ) {
+      return 1;
+    }
+    return 0;
   }
 
   useEffect(() => {
@@ -70,12 +55,7 @@ export default function Navbar({ menuStatus, closingMenuHandler, navHeader }) {
 
   useEffect(() => {
     function hadnleScroll() {
-      const index = nearestIndex(
-        window.scrollY,
-        navHeader,
-        0,
-        navHeader.length - 1
-      );
+      const index = active(navHeader, headerHeight);
       setActiveIndex(index);
     }
     document.addEventListener('scroll', hadnleScroll);
@@ -125,4 +105,5 @@ Navbar.propTypes = {
   menuStatus: PropTypes.bool.isRequired,
   closingMenuHandler: PropTypes.func.isRequired,
   navHeader: PropTypes.instanceOf(Array).isRequired,
+  headerHeight: PropTypes.number.isRequired,
 };

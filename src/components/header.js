@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -13,6 +13,7 @@ import logo from '../images/logo.png';
 
 export default function Header({ navHeader }) {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const headerRef = useRef();
 
   function toggleNavHandler() {
     setToggleMenu(!toggleMenu);
@@ -24,7 +25,7 @@ export default function Header({ navHeader }) {
   };
 
   return (
-    <header className="w-full">
+    <header className="w-full" ref={headerRef}>
       <div className="header-wrapper px-1 py-5 h-full mx-auto font-bold flex flex-col md:flex-row items-center justify-around relative">
         <a href="http://gregnet.pl/">
           <img src={logo} alt="gregnet-logo" className="logo h-auto" />
