@@ -40,6 +40,12 @@ export default function Navbar({
     ) {
       return 3;
     }
+    if (
+      window.scrollY + headerH >
+      sectionPositionArr[4].headerRef.current.offsetTop
+    ) {
+      return 4;
+    }
     return 0;
   }
 
