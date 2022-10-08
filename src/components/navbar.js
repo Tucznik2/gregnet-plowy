@@ -64,7 +64,7 @@ export default function Navbar({
     return () => {
       document.removeEventListener('scroll', hadnleScroll);
     };
-  }, []);
+  });
 
   useEffect(() => {
     const height = () => {
@@ -72,17 +72,25 @@ export default function Navbar({
         return navRef.current.scrollHeight + 8;
       }
       if (screenWidth > 768) {
-        return navRef.current.scrollHeight + 8;
+        return navRef.current.scrollHeight;
       }
       return 0;
     };
     setHeight(height());
-  }, [menuStatus]);
+  }, [menuStatus, screenWidth]);
 
   return (
-    <nav className="w-full" ref={navRef} style={{ height: `${navHeight}px` }}>
+    <nav
+      className="w-full md:py-2"
+      ref={navRef}
+      style={
+        menuStatus
+          ? { paddingTop: '.5rem', height: `${navHeight}px` }
+          : { height: `${navHeight}px` }
+      }
+    >
       <div className="nav-wrapper mx-auto flex justify-center">
-        <ul className="flex md:flex-row flex-col font-bold sticky items-center text-sm md:text-base text-center lg:text-lg text-white gap-4 md:gap-8 p-2">
+        <ul className="flex md:flex-row flex-col font-bold sticky items-center text-sm md:text-base text-center lg:text-lg text-white gap-4 md:gap-8">
           {navHeader.map((header, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <li key={index}>
