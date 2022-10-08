@@ -10,6 +10,7 @@ export default function Navbar({
   const navRef = useRef();
   const [screenWidth, setScreenWidth] = useState();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [navHeight, setHeight] = useState();
 
   function active(sectionPositionArr, headerH) {
     if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
@@ -63,25 +64,23 @@ export default function Navbar({
     return () => {
       document.removeEventListener('scroll', hadnleScroll);
     };
-  });
+  }, []);
 
-  const navHeight = () => {
-    if (menuStatus && screenWidth < 768) {
-      return {
-        height: `${navRef.current.scrollHeight + 8}px`,
-      };
-    }
-    if (screenWidth > 768) {
-      return {
-        height: `${navRef.current.scrollHeight + 8}px`,
-        maxHeight: '47px',
-      };
-    }
-    return { height: '0px' };
-  };
+  useEffect(() => {
+    const height = () => {
+      if (menuStatus && screenWidth < 768) {
+        return navRef.current.scrollHeight + 8;
+      }
+      if (screenWidth > 768) {
+        return navRef.current.scrollHeight + 8;
+      }
+      return 0;
+    };
+    setHeight(height());
+  }, [menuStatus]);
 
   return (
-    <nav className="w-full" ref={navRef} style={navHeight()}>
+    <nav className="w-full" ref={navRef} style={{ height: `${navHeight}px` }}>
       <div className="nav-wrapper mx-auto flex justify-center">
         <ul className="flex md:flex-row flex-col font-bold sticky items-center text-sm md:text-base text-center lg:text-lg text-white gap-4 md:gap-8 p-2">
           {navHeader.map((header, index) => (
