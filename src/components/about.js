@@ -1,9 +1,5 @@
 import { forwardRef } from 'react';
-import Photo1 from '../images/realizations/01.jpg';
-import Photo2 from '../images/realizations/02.jpg';
-import Photo3 from '../images/realizations/03.jpg';
-import Photo4 from '../images/realizations/04.jpg';
-import Photo5 from '../images/realizations/05.jpg';
+import Gallery from './gallery';
 
 function About(props, ref) {
   return (
@@ -22,23 +18,7 @@ function About(props, ref) {
           Niektóre z naszych realizacji
         </h2>
       </div>
-      <div className="about-images w-full grid">
-        <div className="about-img col-span-2">
-          <img src={Photo1} alt="realization-1" />
-        </div>
-        <div className="about-img sm:col-span-2 sm:row-start-2 sm:col-start-3">
-          <img src={Photo2} alt="realization-2" />
-        </div>
-        <div className="about-img">
-          <img src={Photo3} alt="realization-3" />
-        </div>
-        <div className="about-img">
-          <img src={Photo4} alt="realization-4" />
-        </div>
-        <div className="about-img sm:col-span-2">
-          <img src={Photo5} alt="realization-5" />
-        </div>
-      </div>
+      <Gallery />
     </div>
   );
 }

@@ -58,6 +58,14 @@ p {
     font-size: 40px;
   }
 }
+.fade-in {
+  transition: opacity 1.5s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
 /* header */
 header {
   position: sticky;
@@ -194,6 +202,7 @@ nav li {
 /* about */
 .about-images {
   width: 100%;
+  transition: opacity ease-in-out 1s;
 }
 @media screen and (min-width: 640px) {
   .about-images {
